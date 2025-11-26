@@ -6,7 +6,7 @@ Scrapy and Selenium pipelines for large-scale public data extraction.
 ![Scrapy](https://img.shields.io/badge/Scrapy-Production-green)
 ![Selenium](https://img.shields.io/badge/Selenium-Automation-orange)
 ![License](https://img.shields.io/badge/License-MIT-success)
-![Status](https://img.shields.io/badge/Maintained-Yes-brightgreen)
+![Status](https://img.shields.io/badge/Maintained-Yes-green)
 
 This repository contains two production-ready pipelines for extracting data from semi-structured and dynamic portals:
 
