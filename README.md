@@ -1,111 +1,154 @@
-# Web-Scrapping
-📄 README.md for Scraping Repository
-🕸️ Election Web Scrapers
-Scrapy + Selenium Pipelines for Large-Scale Public Data Extraction
+# Web Scraper [Local Bodies]
 
+Scrapy and Selenium pipelines for large-scale public data extraction.
 
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
+![Scrapy](https://img.shields.io/badge/Scrapy-Production-green)
+![Selenium](https://img.shields.io/badge/Selenium-Automation-orange)
+![License](https://img.shields.io/badge/License-MIT-success)
+![Status](https://img.shields.io/badge/Maintained-Yes-brightgreen)
 
+This repository contains two production-ready pipelines for extracting data from semi-structured and dynamic portals:
 
+1. **Scrapy Pipeline** – for ASP.NET-style dropdown navigation
+2. **Selenium Pipeline** – for JavaScript-heavy, dynamic pages
 
+All modules output clean CSVs and use reproducible folder structures.
 
+---
 
+## Features
 
+### Scrapy Pipeline
 
+* Handles dependent dropdowns (Post → District → Block → Panchayat)
+* Uses `FormRequest.from_response` for ASP.NET postbacks
+* Extracts HTML tables with `pandas.read_html`
+* Outputs data in a structured folder hierarchy
+* Fast and scalable
 
-This repository contains two production-ready pipelines for extracting data from semi-structured government election portals:
+### Selenium Pipeline
 
-Scrapy Pipeline – for ASP.NET-style multi-level dropdown websites
+* Handles JavaScript-rendered portals
+* Waits for dynamic elements and loading overlays
+* Extracts tables directly from rendered HTML
+* Produces combined CSV output
 
-Selenium Pipeline – for JavaScript-heavy portals where Scrapy cannot load dynamic content
+---
 
-Both pipelines output clean CSVs, structured folders, and include resilience features like error handling, retries, and explicit waits.
+## Repository Structure
 
-🚀 Features
-✔ Scrapy Pipeline
-
-Handles dependent dropdowns (Post → District → Block → Panchayat)
-
-Uses FormRequest.from_response to simulate ASP.NET postbacks
-
-Extracts HTML tables using pandas.read_html
-
-Saves data with a traceable folder structure
-
-Lightweight, fast, scalable
-
-✔ Selenium Pipeline
-
-Automates dynamic voter portals
-
-Detects dropdown population & loading overlays
-
-Extracts JS-rendered tables
-
-Produces combined CSV output
-
-Useful when HTML is not visible to Scrapy
-
-📂 Folder Structure
+```
 election-web-scrapers/
-│
+|
 ├── scrapy_election_scraper/
 │   ├── spider.py
 │   ├── README.md
 │   ├── scrapy.cfg
 │   └── raw_data/
-│
+|
 ├── selenium_dynamic_scraper/
 │   ├── scrape_dynamic.py
 │   ├── README.md
 │   └── selenium_output/
-│
+|
 ├── requirements.txt
 ├── LICENSE
-└── README.md   # (main)
+└── README.md
+```
 
-🧾 Setup
-Install dependencies
+---
+
+## Installation
+
+Clone the repository:
+
+```
+git clone https://github.com/<your-username>/election-web-scrapers.git
+cd election-web-scrapers
+```
+
+Install dependencies:
+
+```
 pip install -r requirements.txt
+```
 
-Install ChromeDriver (for Selenium)
+For Selenium, install ChromeDriver:
+
+```
+# Ubuntu
 sudo apt install chromium-chromedriver
 
-▶️ Usage
-Run Scrapy spider
+# Mac (with Homebrew)
+brew install chromedriver
+```
+
+---
+
+## Usage
+
+### Run Scrapy spider
+
+```
 cd scrapy_election_scraper
 scrapy crawl winnings
+```
 
-Run Selenium scraper
+The scraped CSVs will appear under:
+
+```
+scrapy_election_scraper/raw_data/
+```
+
+---
+
+### Run Selenium scraper
+
+```
 cd selenium_dynamic_scraper
 python scrape_dynamic.py
+```
 
-📊 Outputs
-Scrapy
-raw_data/<post>/<district>/<block>/<panchayat>.csv
+Output file:
 
-Selenium
-selenium_output/combined.csv
+```
+selenium_dynamic_scraper/selenium_output/combined.csv
+```
 
-🔧 Skills Demonstrated
+---
 
-Data engineering
+## Output Examples
 
-Web scraping (static + dynamic)
+### Scrapy
 
-Form simulation (ASP.NET)
+```
+raw_data/
+├── Post1
+│   ├── District1
+│   │   ├── Block1
+│   │   │   ├── PanchayatA.csv
+│   │   │   └── PanchayatB.csv
+```
 
-Selenium automation
+### Selenium
 
-HTML parsing
+```
+selenium_output/
+└── combined.csv
+```
 
-Pipeline design
+---
 
-Error handling & retries
+## License
 
-📄 License
+This project is licensed under the MIT License.
+See the file `LICENSE`.
 
-MIT License – see LICENSE.
+---
 
-🙋 Contact
+## Contact
 
-LinkedIn: https://linkedin.com/in/trupti-vm/
+LinkedIn: [https://linkedin.com/in/trupti-vm/](https://linkedin.com/in/trupti-vm/)
+
+---
