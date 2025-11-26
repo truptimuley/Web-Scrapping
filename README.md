@@ -39,22 +39,12 @@ All modules output clean CSVs and use reproducible folder structures.
 ## Repository Structure
 
 ```
-election-web-scrapers/
-|
-├── scrapy_election_scraper/
-│   ├── spider.py
-│   ├── README.md
-│   ├── scrapy.cfg
-│   └── raw_data/
-|
-├── selenium_dynamic_scraper/
-│   ├── scrape_dynamic.py
-│   ├── README.md
-│   └── selenium_output/
-|
+web-scrapers/
+├── README.md
+├── spider.py
+├── scrape_dynamic.py
 ├── requirements.txt
 ├── LICENSE
-└── README.md
 ```
 
 ---
