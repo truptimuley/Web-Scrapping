@@ -1,4 +1,4 @@
-# Web Scraper [Local Bodies]
+# Web Scraper
 
 Scrapy and Selenium pipelines for large-scale public data extraction.
 
